@@ -25,7 +25,7 @@ let terminalTimer;
 function startTerminal(){
   clearTimeout(terminalTimer);
   terminal.textContent = terminalPhrases[0];
-  if(motionPreference.matches) return;
+  if(motionPreference.matches || document.documentElement.dataset.motion === 'paused') return;
   let phrase = 0, position = terminalPhrases[0].length, deleting = true;
   function tick(){
     if(document.hidden){terminalTimer=setTimeout(tick,500);return;}
@@ -40,4 +40,5 @@ function startTerminal(){
   terminalTimer=setTimeout(tick,2400);
 }
 motionPreference.addEventListener('change',startTerminal);
+document.addEventListener('motionchange',startTerminal);
 startTerminal();
