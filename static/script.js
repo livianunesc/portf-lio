@@ -17,3 +17,27 @@ document.querySelectorAll('[data-project]').forEach(button=>button.addEventListe
 document.querySelector('.close-dialog').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{const box=dialog.getBoundingClientRect();if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)dialog.close();});
 function downloadResume(){const content='LÍVIA NUNES COELHO\nFront-end em formação\n\nGitHub: https://github.com/livianunesc\n\nFORMAÇÃO\nEnsino médio com Técnico em Informática — em andamento\nMetrologia Mecânica — SENAI — em andamento\n\nHABILIDADES\nHTML, CSS, JavaScript, PHP, Python, MySQL, C++, Excel\nComunicação, liderança, organização e trabalho em equipe\n\nEXPERIÊNCIA\nFinanceiro e rotinas administrativas — META CROMO\nContas a pagar e receber, boletos, impostos, salários e registros em sistemas.\n';const url=URL.createObjectURL(new Blob([content],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='Curriculo-Livia-Nunes.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);const toast=document.querySelector('.toast');toast.textContent='Currículo baixado em formato de texto.';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3500);}
 ['resume','resume-bottom'].forEach(id=>document.getElementById(id).addEventListener('click',downloadResume));document.getElementById('year').textContent=new Date().getFullYear();
+// Terminal: mudanças visuais sem anúncios repetidos para leitores de tela.
+const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+const terminal = document.getElementById('typewriter');
+const terminalPhrases = ['Front-end em formação', 'Transformando ideias em pixels', 'Código + design + curiosidade', 'Aprendendo. Criando. Evoluindo.'];
+let terminalTimer;
+function startTerminal(){
+  clearTimeout(terminalTimer);
+  terminal.textContent = terminalPhrases[0];
+  if(motionPreference.matches) return;
+  let phrase = 0, position = terminalPhrases[0].length, deleting = true;
+  function tick(){
+    if(document.hidden){terminalTimer=setTimeout(tick,500);return;}
+    const text=terminalPhrases[phrase];
+    position += deleting ? -1 : 1;
+    terminal.textContent=text.slice(0,position);
+    let delay=deleting?38:85;
+    if(position===0){deleting=false;phrase=(phrase+1)%terminalPhrases.length;delay=350;}
+    else if(!deleting&&position===text.length){deleting=true;delay=2400;}
+    terminalTimer=setTimeout(tick,delay);
+  }
+  terminalTimer=setTimeout(tick,2400);
+}
+motionPreference.addEventListener('change',startTerminal);
+startTerminal();
