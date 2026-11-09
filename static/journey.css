@@ -1,0 +1,165 @@
+/* Uma sequência de experiências, com superfícies próprias para leitura. */
+.journey-section {
+  position: relative;
+  isolation: isolate;
+  border-block: 1px solid #8f47852b;
+  background: #0b0612cc;
+}
+.journey-section:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 12% 45%, #702b8c14, transparent 55%);
+}
+.journey-section .section-heading { margin-bottom: 50px; }
+.journey-section .section-heading .muted { font-size: 13px; }
+.journey-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 36px; align-items: start; }
+.journey-column-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 27px; }
+.journey-column-heading .eyebrow { margin: 0 0 6px; font-size: 12px; letter-spacing: 1.4px; color: #bf91cf; }
+.journey-column-heading h3 { font-size: 18px; margin: 0; letter-spacing: -.4px; }
+.journey-heading-icon { display: grid; place-items: center; width: 42px; height: 42px; flex-shrink: 0; border: 1px solid #ac59b144; border-radius: 10px; background: #2d153666; color: #db9ee8; }
+.journey-heading-icon svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+.career-track { margin: 0; padding: 0 0 0 43px; list-style: none; }
+.career-step { position: relative; padding-bottom: 24px; }
+.career-step:before { content: ''; position: absolute; left: -28px; top: 27px; bottom: -27px; width: 1px; background: linear-gradient(#6d3c89, #bd68c2); }
+.career-step:last-child { padding-bottom: 0; }
+.career-step:last-child:before { display: none; }
+.career-marker { position: absolute; left: -43px; top: 24px; width: 31px; height: 31px; display: grid; place-items: center; background: #1c0e2a; border: 1px solid #704a88; border-radius: 50%; font: 14px VT323, monospace; color: #cfb1e6; box-shadow: 0 0 0 6px #0e0817; }
+.current-step .career-marker { background: #4b1d53; border-color: #e797e2; color: #fff0ff; box-shadow: 0 0 0 6px #0e0817, 0 0 22px #d85bca38; }
+.career-card { padding: 24px; border: 1px solid #553160; border-radius: 12px; background: linear-gradient(135deg, #21102d55, transparent 65%), #120c1c; box-shadow: 0 8px 28px #0002; transition: border-color .3s, transform .3s; }
+.career-card:hover { border-color: #ba79bd; transform: translateY(-2px); }
+.career-card.current-card { border-color: #c974bd77; background: linear-gradient(130deg, #55204c42, transparent 70%), #170e20; }
+.career-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 20px; }
+.career-period { display: flex; flex-direction: column; margin: 0; line-height: 1.3; }
+.career-period time { font-family: 'Space Grotesk', sans-serif; font-size: 23px; font-weight: 600; color: #efd6f7; letter-spacing: -.7px; }
+.career-period > span { font-size: 11px; color: #a28aad; margin-top: 5px; }
+.career-state { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border: 1px solid #5e3d7055; border-radius: 5px; color: #bca5c9; font: 13px VT323, monospace; white-space: nowrap; }
+.career-state.current-state { background: #5e235236; border-color: #c776b94d; color: #edb3df; }
+.current-state > span { width: 5px; height: 5px; border-radius: 50%; background: #ef98da; box-shadow: 0 0 8px #e45fcc66; animation: status-glow 3s ease-in-out infinite; }
+.career-card h4 { font-size: 18px; line-height: 1.4; margin: 0 0 7px; letter-spacing: -.35px; color: #f4e8fa; }
+.career-company { font-size: 11px; color: #c49bd2; margin: 0 0 19px; line-height: 1.6; }
+.career-company > span { color: #9a83a6; }
+.career-description { font-size: 12px; color: #c0afcd; line-height: 1.85; margin: 0 0 13px; }
+.career-responsibilities { list-style: none; padding: 0; margin: 0; }
+.career-responsibilities li { display: flex; gap: 9px; color: #b8a5c7; font-size: 11px; line-height: 1.8; margin-bottom: 5px; }
+.career-responsibilities li:before { content: '›'; color: #de8dd7; font-size: 15px; line-height: 1.3; flex-shrink: 0; }
+.career-tags { margin: 18px 0 0; gap: 6px; }
+.career-tags span { font-size: 9px; padding: 3px 8px; background: #291331; border-color: #a565a62c; }
+.career-transition { border-top: 1px solid #9a5f9e26; margin: 18px 0 0; padding-top: 14px; display: flex; align-items: baseline; gap: 8px; font-size: 10px; line-height: 1.7; color: #ae94bd; }
+.career-transition > span { color: #d895db; width: 14px; height: 14px; flex-shrink: 0; align-self: flex-start; margin-top: 2px; }
+.career-transition svg { display: block; width: 100%; height: 100%; }
+
+.learning-panel { padding: 25px; border: 1px solid #69406e66; border-radius: 14px; background: linear-gradient(150deg, #52214d1f, transparent 45%), #120b1bf5; box-shadow: 0 12px 40px #0002; }
+.learning-panel .journey-column-heading { gap: 11px; margin-bottom: 24px; }
+.learning-panel .journey-column-heading h3 { font-size: 17px; }
+.learning-panel .journey-column-heading .eyebrow { font-size: 11px; }
+.learning-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 5px; margin-bottom: 25px; background: #09060f; border: 1px solid #8c53882b; border-radius: 8px; }
+.learning-tabs button { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 12px; color: #a68fb4; background: transparent; border: 1px solid transparent; border-radius: 5px; padding: 8px 5px; transition: background .2s, color .2s; }
+.learning-tabs button > span { font: 12px VT323, monospace; opacity: .6; }
+.learning-tabs button:hover { color: #f2d0f4; }
+.learning-tabs button.selected { background: linear-gradient(110deg, #50244c, #311638); border-color: #d27abc3d; color: #f5d8f4; box-shadow: 0 2px 10px #0003; }
+.learning-content { min-height: 287px; }
+.learning-content [role="tabpanel"]:focus-visible { outline: 1px solid #c580bf; outline-offset: 7px; border-radius: 5px; }
+.study-card { display: flex; align-items: flex-start; gap: 13px; padding: 0 0 23px; margin: 0 0 23px; border-bottom: 1px solid #72466f33; }
+.study-card:last-child { border: 0; padding-bottom: 0; margin-bottom: 0; }
+.study-symbol { display: grid; place-items: center; width: 30px; height: 30px; flex-shrink: 0; margin-top: 2px; color: #d399e3; background: #39204266; border: 1px solid #a268ae26; border-radius: 6px; font: 17px VT323, monospace; }
+.study-card > div { min-width: 0; }
+.study-category { font: 11px VT323, monospace; letter-spacing: 1.3px; color: #a780b8; margin: 0 0 8px; }
+.study-card h4 { font-size: 14px; line-height: 1.5; font-weight: 600; margin: 0 0 9px; color: #f0e2f6; }
+.study-description { color: #ac98ba; font-size: 11px; line-height: 1.85; margin: 0 0 13px; }
+.study-status { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; font-size: 9px; color: #d6afd8; margin: 0; }
+.study-status > span:first-child { width: 4px; height: 4px; border-radius: 50%; background: #ba8cd2; }
+.study-detail { color: #a790b5; }
+.achievement-stats { display: flex; gap: 22px; padding: 5px 0; }
+.achievement-stats > span { display: flex; flex-direction: column; color: #ac91bc; font-size: 9px; }
+.achievement-stats strong { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 500; line-height: 1.4; color: #e9b6f0; }
+.journey-courses { margin-top: 25px; border-top: 1px solid #80517b40; padding-top: 24px; }
+.journey-courses h4 { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; margin: 0 0 17px; }
+.journey-courses h4 > span { color: #aa80b9; font: 9px VT323, monospace; letter-spacing: .5px; }
+.journey-courses ul { list-style: none; padding: 0; margin: 0; }
+.journey-courses li { display: flex; gap: 11px; padding: 11px 0; border-bottom: 1px solid #6f486b26; }
+.journey-courses li:last-child { border: 0; padding-bottom: 0; }
+.course-index { color: #845694; font: 13px VT323, monospace; padding-top: 2px; }
+.journey-courses li > div { display: flex; flex-direction: column; gap: 3px; }
+.journey-courses strong { font-size: 11px; font-weight: 400; line-height: 1.5; color: #c6b0d1; }
+.journey-courses li div > span { font-size: 9px; color: #997fa9; }
+
+.journey-takeaway { display: flex; align-items: center; gap: 16px; padding: 22px 25px; margin-top: 30px; border: 1px solid #79507842; border-radius: 10px; background: linear-gradient(100deg, #28112ad9, #100a18e8); }
+.takeaway-arrow { display: grid; place-items: center; width: 35px; height: 35px; flex-shrink: 0; border: 1px solid #b965b14d; border-radius: 50%; color: #e1a6e4; font-size: 20px; }
+.journey-takeaway p { color: #e7cfed; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; margin: 0 0 4px; line-height: 1.5; }
+.journey-takeaway div > span { font-size: 11px; color: #ae95bd; line-height: 1.7; display: block; }
+.takeaway-code { font: 14px VT323, monospace; color: #ba84cb; margin-left: auto; white-space: nowrap; padding-left: 10px; }
+
+@media (max-width: 1050px) {
+  .journey-grid { gap: 24px; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+  .career-card { padding: 20px; }
+  .learning-panel { padding: 20px; }
+  .learning-panel .journey-heading-icon { display: none; }
+  .learning-content { min-height: 340px; }
+  .career-card h4 { font-size: 17px; }
+}
+@media (max-width: 850px) {
+  .journey-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .learning-panel .journey-heading-icon { display: grid; }
+  .learning-content { min-height: 0; }
+  .learning-content [role="tabpanel"] { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .study-card { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+  .journey-courses ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .journey-courses li { border-bottom: 0; border-right: 1px solid #6f486b26; padding: 0 12px 0 0; }
+  .takeaway-code { display: none; }
+}
+@media (max-width: 560px) {
+  .journey-section .section-heading { margin-bottom: 36px; }
+  .journey-section .section-heading .muted { font-size: 12px; max-width: 310px; margin-inline: auto; }
+  .journey-column-heading { gap: 12px; margin-bottom: 22px; }
+  .journey-column-heading h3 { font-size: 17px; }
+  .journey-heading-icon { width: 36px; height: 36px; border-radius: 8px; }
+  .journey-column-heading .eyebrow { font-size: 11px; }
+  .career-track { padding-left: 29px; }
+  .career-step { padding-bottom: 20px; }
+  .career-step:before { left: -18px; top: 29px; bottom: -29px; }
+  .career-marker { width: 23px; height: 23px; left: -29px; top: 27px; font-size: 11px; box-shadow: 0 0 0 4px #0e0817; }
+  .current-step .career-marker { box-shadow: 0 0 0 4px #0e0817, 0 0 18px #d85bca38; }
+  .career-card { padding: 18px 16px; border-radius: 10px; }
+  .career-meta { gap: 6px; margin-bottom: 18px; }
+  .career-period time { font-size: 21px; }
+  .career-period > span { font-size: 10px; }
+  .career-state { padding: 4px 6px; font-size: 11px; }
+  .career-card h4 { font-size: 16px; }
+  .career-company { font-size: 10px; margin-bottom: 15px; }
+  .career-description { font-size: 12px; }
+  .career-tags span { font-size: 8px; padding-inline: 6px; }
+  .career-transition { font-size: 10px; }
+  .learning-panel { padding: 21px 19px; }
+  .learning-panel .journey-column-heading h3 { font-size: 16px; }
+  .learning-tabs { margin-bottom: 24px; }
+  .learning-content { min-height: 305px; }
+  .learning-content [role="tabpanel"] { display: block; }
+  .study-card { padding-bottom: 22px; margin-bottom: 22px; border-bottom: 1px solid #72466f33; }
+  .study-card h4 { font-size: 14px; }
+  .journey-courses { margin-top: 22px; padding-top: 22px; }
+  .journey-courses h4 { gap: 5px; }
+  .journey-courses ul { display: block; }
+  .journey-courses li { border-right: 0; border-bottom: 1px solid #6f486b26; padding: 12px 0; }
+  .journey-courses li > div { flex: 1; }
+  .journey-takeaway { gap: 12px; padding: 19px 17px; margin-top: 24px; align-items: flex-start; }
+  .takeaway-arrow { width: 28px; height: 28px; font-size: 18px; }
+  .journey-takeaway p { font-size: 13px; }
+  .journey-takeaway div > span { font-size: 10px; }
+}
+@media (max-width: 360px) {
+  .career-meta { flex-wrap: wrap; gap: 10px; }
+  .career-state { align-self: auto; }
+  .career-period { flex: 1; }
+  .career-period time { font-size: 19px; white-space: nowrap; }
+  .career-company span { display: block; }
+  .learning-panel { padding: 20px 15px; }
+  .study-card { gap: 10px; }
+  .learning-content { min-height: 335px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .career-card:hover { transform: none; }
+}
